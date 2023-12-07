@@ -4,7 +4,6 @@ import logging
 from datetime import datetime
 from datetime import timedelta
 from datetime import date
-from telegram.ext import CallbackContext
 import schedule
 import threading
 logging.basicConfig(
@@ -85,7 +84,7 @@ class Sheet:
     #     pass
 
     @classmethod
-    def delete(self, update, username, day, time, context: CallbackContext):
+    def delete(self, context, username, day, time):
         listed = people.col_values(2)
         user_conf = people.col_values(7)
         for i, person in enumerate(listed):
